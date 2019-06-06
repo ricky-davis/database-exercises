@@ -19,8 +19,7 @@ where dm.to_date > curdate() and e.gender="F"
 order by d.dept_name;
 
 select t.title as Title, count(*) as Count from titles as t
-join employees as e on e.emp_no = t.emp_no
-join dept_emp as de on e.emp_no = de.emp_no
+join dept_emp as de on t.emp_no = de.emp_no
 where de.dept_no = "d009" and t.to_date > curdate()
 group by t.title;
 
@@ -43,3 +42,12 @@ where dm.to_date > curdate() and de.to_date > curdate()
 order by d.dept_name;
 
 
+
+
+select e.first_name, e.last_name, e.birth_date from employees as e
+join dept_manager dm on e.emp_no = dm.emp_no;
+
+select first_name, last_name, birth_date from employees
+where emp_no in (
+    select emp_no from dept_manager
+    );
