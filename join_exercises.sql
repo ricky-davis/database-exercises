@@ -44,7 +44,7 @@ order by d.dept_name;
 
 
 
-select e.first_name, e.last_name, e.birth_date from employees as e
+select e.first_nameo, e.last_name, e.birth_date from employees as e
 join dept_manager dm on e.emp_no = dm.emp_no;
 
 select first_name, last_name, birth_date from employees
